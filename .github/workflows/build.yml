@@ -1,4 +1,4 @@
-name: Build and publish a Docker image to ghcr.io
+name: Build and Publish
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +11,7 @@ env:
   VERSION: ${{ inputs.version }}
 jobs:
   docker_publish:
-    runs-on: "ubuntu-20.04"
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
