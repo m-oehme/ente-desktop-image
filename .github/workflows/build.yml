@@ -29,3 +29,4 @@ jobs:
           image_name: ${{ github.repository }}  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: ./ContainerFile
+          extra_args: "--build-arg VERSION=${{ env.VERSION }} --build-arg FILE_NAME=${{ steps.release-file.outputs.filename }}"
