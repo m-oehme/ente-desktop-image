@@ -10,14 +10,14 @@ on:
 env:
   VERSION: ${{ inputs.version }}
 jobs:
-  docker_publish:
+  container_publish:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       
       - name: Retrieve version
-        run: sh ../../build_container.sh
+        run: sh ./build-container.sh
         id: release-file
 
       # https://github.com/marketplace/actions/push-to-ghcr
@@ -28,4 +28,4 @@ jobs:
         with:
           image_name: ${{ github.repository }}  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          dockerfile: ../../ContainerFile
+          dockerfile: ./ContainerFile
