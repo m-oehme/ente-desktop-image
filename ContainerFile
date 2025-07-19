@@ -1,0 +1,14 @@
+FROM consol/debian-xfce-vnc
+ARG FILE_NAME
+ARG VERSION
+
+# Switch to root user to install additional software
+USER 0
+
+## Install Ente
+RUN wget https://github.com/ente-io/photos-desktop/releases/download/${VERSION}/${FILE_NAME}
+RUN dpkg -i ${FILE_NAME}
+
+# switch back to default user
+USER 1000
+CMD ente --no-sandbox
