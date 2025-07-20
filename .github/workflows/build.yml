@@ -12,7 +12,7 @@ env:
 jobs:
   container_publish:
     runs-on: ubuntu-latest
-    permisions:
+    permissions:
       packages: write
     steps:
       - uses: actions/checkout@v2
