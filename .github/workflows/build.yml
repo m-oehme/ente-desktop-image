@@ -12,7 +12,8 @@ env:
 jobs:
   container_publish:
     runs-on: ubuntu-latest
-
+    permisions:
+      packages: write
     steps:
       - uses: actions/checkout@v2
       
